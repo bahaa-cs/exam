@@ -35,5 +35,25 @@ class UserController extends Controller
           }
 
    
-}
+    }
+
+    function update_user($id, Request $request) {
+        $user = User::find($id);
+    
+        if (!$user) {
+            return response()->json([
+                "message" => "user not found"
+            ]);
+        }
+    
+        $user->update([
+            "username" => $request->username ?? $user->username,
+            "password" => $request->password ?? $user->password,
+        ]);
+    
+        return response()->json([
+            "isUpdated" => true
+        ]);
+    }
+    
 }
