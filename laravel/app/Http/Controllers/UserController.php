@@ -14,4 +14,26 @@ class UserController extends Controller
             "users" => $users
         ]);
     }
+
+    function create_user(Request $request) {
+
+        try {
+            $user = User::create([
+                "username" => $request->username,
+                "password" => $request->password
+            ]);
+    
+            return response()->json([
+                "new_user" => $user
+            ]);
+          }
+          
+          catch(Exception) {
+            return response()->json([
+                "message" => 'missing username or password'
+            ]);   
+          }
+
+   
+}
 }
