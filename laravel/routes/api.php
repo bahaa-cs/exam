@@ -13,4 +13,5 @@ Route::get('/user', function (Request $request) {
 Route::prefix('/users')->group(function(){
     Route::get('/',[UserController::class,'get_users']);
     Route::post('/',[UserController::class,'create_user']);
+    Route::put('/{id}',[UserController::class,'update_user']);
 });
