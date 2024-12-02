@@ -35,38 +35,37 @@ class ProjectController extends Controller
    
     }
 
-    // function update_user($id, Request $request) {
-    //     $user = User::find($id);
+    function update_project($id, Request $request) {
+        $project = Project::find($id);
     
-    //     if (!$user) {
-    //         return response()->json([
-    //             "message" => "user not found"
-    //         ]);
-    //     }
+        if (!$project) {
+            return response()->json([
+                "message" => "project not found"
+            ]);
+        }
     
-    //     $user->update([
-    //         "username" => $request->username ?? $user->username,
-    //         "password" => $request->password ?? $user->password,
-    //     ]);
+        $project->update([
+            "name" => $request->name ?? $user->name
+        ]);
     
-    //     return response()->json([
-    //         "isUpdated" => true
-    //     ]);
-    // }
+        return response()->json([
+            "isUpdated" => true
+        ]);
+    }
 
-    // function delete_user($id) {
-    //     $user = User::find($id);
+    function delete_project($id) {
+        $project = Project::find($id);
     
-    //     if (!$user) {
-    //         return response()->json([
-    //             "message" => "user not found"
-    //         ]);
-    //     }
-    //     $user->delete();
+        if (!$project) {
+            return response()->json([
+                "message" => "project not found"
+            ]);
+        }
+        $project->delete();
     
-    //     return response()->json([
-    //         "isDeleted" => true
-    //     ]);
-    // }
+        return response()->json([
+            "isDeleted" => true
+        ]);
+    }
     
 }

@@ -20,6 +20,6 @@ Route::prefix('/users')->group(function(){
 Route::prefix('/projects')->group(function(){
     Route::get('/',[ProjectController::class,'get_projects']);
     Route::post('/',[ProjectController::class,'create_project']);
-    // Route::put('/{id}',[ProjectController::class,'update_project']);
-    // Route::delete('/{id}',[ProjectController::class,'delete_project']);
+    Route::put('/{id}',[ProjectController::class,'update_project']);
+    Route::delete('/{id}',[ProjectController::class,'delete_project']);
 });
