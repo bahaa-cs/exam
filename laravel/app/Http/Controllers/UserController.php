@@ -55,5 +55,21 @@ class UserController extends Controller
             "isUpdated" => true
         ]);
     }
+
+    function delete_user($id) {
+        $user = User::find($id);
+    
+        if (!$user) {
+            return response()->json([
+                "message" => "user not found"
+            ]);
+        }
+        $user->delete();
+    
+        return response()->json([
+            "isDeleted" => true
+        ]);
+    }
+    
     
 }
