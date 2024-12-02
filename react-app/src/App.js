@@ -1,18 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Projects from "./pages/Projects";
 import projectsProvider from "./context/projectsContext";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
     <div className="App">
-      <projectsProvider>
+      
         <BrowserRouter>
-          <Routes>
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
+          <projectsProvider>
+            <Routes>
+              <Route path="/projects" element={<Projects />} />
+            </Routes>
+          </projectsProvider>
         </BrowserRouter>
-      </projectsProvider>
+      
     </div>
   );
 }
