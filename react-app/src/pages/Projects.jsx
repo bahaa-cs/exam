@@ -1,7 +1,7 @@
 import React from "react";
 import Project from "../components/Project";
 
-const Projects = ({projects}) => {
+const Projects = () => {
   return (
     <div className="projects-container">
       {projects.map((p) => (
