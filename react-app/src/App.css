@@ -14,9 +14,6 @@
   align-items: center;
 }
 
-.projects-container::-webkit-scrollbar {
-  display: none;
-}
 
 .project-card {
   display: flex;

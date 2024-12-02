@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import projectsProvider from "./context/projectsContext";
+// import "./App.css";
+import ProjectsProvider from "./context/ProjectsContext";
 import Projects from "./pages/Projects";
 
-function App() {
+const App=()=> {
   return (
     <div className="App">
       
         <BrowserRouter>
-          <projectsProvider>
+          <ProjectsProvider>
             <Routes>
               <Route path="/projects" element={<Projects />} />
             </Routes>
-          </projectsProvider>
+          </ProjectsProvider>
         </BrowserRouter>
       
     </div>

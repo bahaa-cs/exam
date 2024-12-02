@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const projectsContext = createContext();
 
-const projectsProvider = ({children})=>{
+const ProjectsProvider = ({children})=>{
     const [projects, setProjects] =useState([]);
 
     useEffect(()=>{
@@ -26,5 +26,5 @@ const projectsProvider = ({children})=>{
     )
 }
 
-export default projectsProvider;
+export default ProjectsProvider;
 
