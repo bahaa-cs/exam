@@ -6,68 +6,67 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 class ProjectController extends Controller
 {
-    function get_users() {
-        $users = User::all();
+    function get_projects() {
+        $projects = Project::all();
 
         return response()->json([
-            "users" => $users
+            "projects" => $projects
         ]);
     }
 
-    function create_user(Request $request) {
+    function create_project(Request $request) {
 
         try {
-            $user = User::create([
-                "username" => $request->username,
-                "password" => $request->password
+            $project = Project::create([
+                "name" => $request->name
             ]);
     
             return response()->json([
-                "new_user" => $user
+                "new_project" => $project
             ]);
           }
           
           catch(Exception) {
             return response()->json([
-                "message" => 'missing username or password'
+                "message" => 'missing name'
             ]);   
           }
 
    
     }
 
-    function update_user($id, Request $request) {
-        $user = User::find($id);
+    // function update_user($id, Request $request) {
+    //     $user = User::find($id);
     
-        if (!$user) {
-            return response()->json([
-                "message" => "user not found"
-            ]);
-        }
+    //     if (!$user) {
+    //         return response()->json([
+    //             "message" => "user not found"
+    //         ]);
+    //     }
     
-        $user->update([
-            "username" => $request->username ?? $user->username,
-            "password" => $request->password ?? $user->password,
-        ]);
+    //     $user->update([
+    //         "username" => $request->username ?? $user->username,
+    //         "password" => $request->password ?? $user->password,
+    //     ]);
     
-        return response()->json([
-            "isUpdated" => true
-        ]);
-    }
+    //     return response()->json([
+    //         "isUpdated" => true
+    //     ]);
+    // }
 
-    function delete_user($id) {
-        $user = User::find($id);
+    // function delete_user($id) {
+    //     $user = User::find($id);
     
-        if (!$user) {
-            return response()->json([
-                "message" => "user not found"
-            ]);
-        }
-        $user->delete();
+    //     if (!$user) {
+    //         return response()->json([
+    //             "message" => "user not found"
+    //         ]);
+    //     }
+    //     $user->delete();
     
-        return response()->json([
-            "isDeleted" => true
-        ]);
-    }
+    //     return response()->json([
+    //         "isDeleted" => true
+    //     ]);
+    // }
     
 }
